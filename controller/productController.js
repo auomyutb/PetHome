@@ -1,6 +1,6 @@
 const Product = require("../models/Product")
 
-////////////////////////////////////////////
+////////////////////👌DONE CHECK THIS IN INSOMNIA ////////////////////////
 
 const getProducts = async (req, res) => {
   try {
@@ -11,7 +11,7 @@ const getProducts = async (req, res) => {
   }
 }
 
-////////////////////////////////////////////
+////////////////////👌DONE CHECK THIS IN INSOMNIA ////////////////////////
 
 const createProduct = async (req, res) => {
   try {
@@ -22,7 +22,7 @@ const createProduct = async (req, res) => {
   }
 }
 
-////////////////////////////////////////////
+////////////////////👌DONE CHECK THIS IN INSOMNIA ////////////////////////
 
 const updateProduct = async (req, res) => {
   try {
@@ -34,7 +34,7 @@ const updateProduct = async (req, res) => {
   }
 }
 
-////////////////////////////////////////////
+////////////////////👌DONE CHECK THIS IN INSOMNIA ////////////////////////
 
 const deleteProduct = async (req, res) => {
   try {

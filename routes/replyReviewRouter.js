@@ -7,4 +7,6 @@ router.get("/:review", replyReviewController.getReply)
 
 router.post("/", replyReviewController.createReply)
 
+router.delete("/:id", replyReviewController.deleteReply)
+
 module.exports = router

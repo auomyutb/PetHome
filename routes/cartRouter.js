@@ -3,8 +3,11 @@ const router = express.Router()
 
 const cartController = require("../controller/cartController")
 
-router.get("/:user", cartController.getUserCart)
+
 router.post("/add", cartController.addToCart)
+
+router.get("/:user", cartController.getUserCart)
+
 router.post("/remove", cartController.removeFromCart)
 router.delete("/clear/:user", cartController.clearCart)
 
