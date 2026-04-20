@@ -5,6 +5,7 @@ const getDonations = async (req, res) => {
     const donations = await Donation.find().sort({ createdAt: -1 })
     res.json(donations)
   } catch (error) {
+    console.log('GET donations error:', error)
     res.status(500).json({ message: 'Error fetching donations' })
   }
 }
@@ -21,11 +22,23 @@ const createDonation = async (req, res) => {
 
     res.status(201).json(newDonation)
   } catch (error) {
+    console.log('POST donation error:', error)
     res.status(500).json({ message: 'Error creating donation' })
+  }
+}
+
+const deleteDonation = async (req, res) => {
+  try {
+    await Donation.findByIdAndDelete(req.params.id)
+    res.json({ message: 'Donation deleted successfully' })
+  } catch (error) {
+    console.log('DELETE donation error:', error)
+    res.status(500).json({ message: 'Error deleting donation' })
   }
 }
 
 module.exports = {
   getDonations,
-  createDonation
+  createDonation,
+  deleteDonation
 }

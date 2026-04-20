@@ -17,5 +17,6 @@ const upload = multer({ storage })
 
 router.get('/', donationController.getDonations)
 router.post('/', upload.single('transferImage'), donationController.createDonation)
+router.delete('/:id', donationController.deleteDonation)
 
 module.exports = router
