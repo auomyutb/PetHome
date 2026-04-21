@@ -6,7 +6,7 @@ const getDonations = async (req, res) => {
     res.json(donations)
   } catch (error) {
     console.log('GET donations error:', error)
-    res.status(500).json({ message: 'Error fetching donations' })
+    res.status(500).json({ message: 'Error  donations' })
   }
 }
 
