@@ -1,5 +1,7 @@
 const Pet = require('../models/Pet')
 
+///////////////////////////////
+
 const getAllPets = async (req, res) => {
   try {
     const pets = await Pet.find().sort({ createdAt: -1 })
@@ -8,6 +10,8 @@ const getAllPets = async (req, res) => {
     res.status(500).json({ message: 'Error fetching pets' })
   }
 }
+
+///////////////////////////////
 
 const getDogs = async (req, res) => {
   try {
@@ -18,6 +22,8 @@ const getDogs = async (req, res) => {
   }
 }
 
+///////////////////////////////
+
 const getCats = async (req, res) => {
   try {
     const cats = await Pet.find({ type: 'cat' }).sort({ createdAt: -1 })
@@ -27,12 +33,13 @@ const getCats = async (req, res) => {
   }
 }
 
+///////////////////////////////
+
 const createPet = async (req, res) => {
   try {
     if (!req.user.isAdmin) {
       return res.status(403).json({ message: 'Admins only' })
     }
-
     const newPet = await Pet.create(req.body)
     res.status(201).json(newPet)
   } catch (error) {
@@ -41,16 +48,16 @@ const createPet = async (req, res) => {
   }
 }
 
+///////////////////////////////
+
 const updatePet = async (req, res) => {
   try {
     if (!req.user.isAdmin) {
       return res.status(403).json({ message: 'Admins only' })
     }
-
     const updatedPet = await Pet.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     })
-
     res.json(updatedPet)
   } catch (error) {
     console.log(error)
@@ -58,12 +65,13 @@ const updatePet = async (req, res) => {
   }
 }
 
+///////////////////////////////
+
 const deletePet = async (req, res) => {
   try {
     if (!req.user.isAdmin) {
       return res.status(403).json({ message: 'Admins only' })
     }
-
     await Pet.findByIdAndDelete(req.params.id)
     res.json({ message: 'Pet deleted successfully' })
   } catch (error) {
@@ -71,6 +79,8 @@ const deletePet = async (req, res) => {
     res.status(500).json({ message: 'Error deleting pet' })
   }
 }
+
+///////////////////////////////
 
 module.exports = {
   getAllPets,
